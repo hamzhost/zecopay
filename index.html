@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surat Cinta dari Hati</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Payment Gateway</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a0a2e, #2c0a4d, #4a0a7a);
+            background: url('https://files.catbox.moe/16ulsv.jpg') no-repeat center center fixed;
+            background-size: cover;
             color: #fff;
             min-height: 100vh;
-            overflow-x: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -32,211 +33,22 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 10% 20%, rgba(255, 200, 124, 0.15) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(173, 216, 230, 0.15) 0%, transparent 20%),
-                radial-gradient(circle at 50% 50%, rgba(255, 105, 180, 0.1) 0%, transparent 30%);
-            z-index: -1;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 0;
         }
         
         .container {
-            max-width: 900px;
-            width: 100%;
-            background: rgba(15, 5, 35, 0.85);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             position: relative;
-            border: 1px solid rgba(255, 105, 180, 0.3);
-            backdrop-filter: blur(10px);
-        }
-        
-        .envelope {
-            position: absolute;
-            top: -40px;
-            right: 30px;
-            font-size: 80px;
-            color: #ff6b8b;
-            filter: drop-shadow(0 5px 10px rgba(255, 107, 139, 0.4));
-            transform: rotate(15deg);
-            animation: float 4s ease-in-out infinite;
-            z-index: 10;
-        }
-        
-        .header {
-            text-align: center;
-            padding: 40px 20px 20px;
-            background: linear-gradient(to right, #ff6b8b, #ff8e53);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-        
-        .header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .heart-container {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: pulse 2s infinite;
-        }
-        
-        .heart {
-            color: #ff6b8b;
-            font-size: 2.5rem;
-            position: absolute;
-        }
-        
-        .letter-container {
-            padding: 40px;
-            position: relative;
-        }
-        
-        .letter-paper {
-            background: linear-gradient(to bottom right, #fffdf8, #fff9f0);
-            border-radius: 15px;
-            padding: 40px;
-            color: #333;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            position: relative;
-            min-height: 500px;
-        }
-        
-        .letter-paper::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 40px;
-            width: 2px;
-            height: 100%;
-            background: repeating-linear-gradient(to bottom, transparent, transparent 15px, rgba(255, 107, 139, 0.2) 15px, rgba(255, 107, 139, 0.2) 16px);
-        }
-        
-        .letter-content {
-            position: relative;
-            z-index: 2;
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-        
-        .letter-content p {
-            margin-bottom: 20px;
-            text-align: justify;
-        }
-        
-        .salutation {
-            font-weight: bold;
-            font-size: 1.3rem;
-            color: #d23669;
-            margin-bottom: 25px;
-        }
-        
-        .signature {
-            text-align: right;
-            margin-top: 40px;
-            font-family: 'Brush Script MT', cursive;
-            font-size: 2.2rem;
-            color: #ff6b8b;
-        }
-        
-        .interactive {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            background: linear-gradient(to right, #ff6b8b, #ff8e53);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 5px 15px rgba(255, 107, 139, 0.4);
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 107, 139, 0.6);
-        }
-        
-        .btn:active {
-            transform: translateY(1px);
-        }
-        
-        .footer {
-            text-align: center;
-            padding: 25px;
-            background: rgba(10, 3, 25, 0.8);
-            border-top: 1px solid rgba(255, 105, 180, 0.2);
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .hearts {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
             z-index: 1;
-        }
-        
-        .heart-particle {
-            position: absolute;
-            font-size: 1.2rem;
-            color: rgba(255, 107, 139, 0.7);
-            opacity: 0;
-        }
-        
-        .floating {
-            position: absolute;
-            animation: floatAround 10s infinite linear;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0) rotate(15deg); }
-            50% { transform: translateY(-15px) rotate(20deg); }
-            100% { transform: translateY(0) rotate(15deg); }
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        
-        @keyframes floatAround {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(20px, 15px) rotate(90deg); }
-            50% { transform: translate(40px, 5px) rotate(180deg); }
-            75% { transform: translate(20px, 15px) rotate(270deg); }
-            100% { transform: translate(0, 0) rotate(360deg); }
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
         }
         
         @keyframes fadeIn {
@@ -244,199 +56,232 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        .fade-in {
-            animation: fadeIn 1.5s ease-out forwards;
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: #fff;
+            position: relative;
+            padding-bottom: 15px;
         }
         
-        .delay-1 { animation-delay: 0.3s; }
-        .delay-2 { animation-delay: 0.6s; }
-        .delay-3 { animation-delay: 0.9s; }
-        .delay-4 { animation-delay: 1.2s; }
-        .delay-5 { animation-delay: 1.5s; }
-        
-        .music-control {
+        h1::after {
+            content: '';
             position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            color: #ff6b8b;
-            font-size: 1.5rem;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 107, 139, 0.3);
-            transition: all 0.3s ease;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #00a8ff, #0097e6);
+            border-radius: 3px;
         }
         
-        .music-control:hover {
-            background: rgba(255, 107, 139, 0.2);
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .payment-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .payment-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .payment-card img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .payment-card:hover img {
             transform: scale(1.1);
         }
         
+        .payment-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        .payment-details {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .payment-card.active .payment-details {
+            opacity: 1;
+            height: auto;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        
+        .payment-details p {
+            font-size: 14px;
+            margin-bottom: 10px;
+            word-break: break-all;
+        }
+        
+        .copy-btn {
+            background: linear-gradient(90deg, #00a8ff, #0097e6);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-btn:hover {
+            background: linear-gradient(90deg, #0097e6, #00a8ff);
+            transform: translateY(-2px);
+        }
+        
+        .qris-container {
+            text-align: center;
+            margin-top: 30px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        .qris-container img {
+            max-width: 250px;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .qris-container p {
+            margin-top: 10px;
+            font-weight: 500;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 168, 255, 0.9);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transform: translateX(200%);
+            transition: transform 0.3s ease;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
         @media (max-width: 768px) {
-            .header h1 { font-size: 2.2rem; }
-            .letter-container { padding: 20px; }
-            .letter-paper { padding: 30px 20px; }
-            .signature { font-size: 1.8rem; }
-            .envelope { font-size: 60px; top: -30px; }
+            .payment-methods {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="envelope">
-        <i class="fas fa-envelope"></i>
-    </div>
-    
     <div class="container">
-        <div class="header">
-            <div class="heart-container">
-                <i class="fas fa-heart heart"></i>
-            </div>
-            <h1>Surat Cinta Untukmu</h1>
-            <p>Sebuah perjalanan perasaan yang ingin kuungkapkan dengan tulus</p>
-        </div>
+        <h1>Payment Gateway</h1>
         
-        <div class="letter-container">
-            <div class="letter-paper">
-                <div class="letter-content">
-                    <div class="salutation fade-in">Untuk Seseorang yang Sangat Berarti,</div>
-                    
-                    <p class="fade-in delay-1">Ketika aku menutup mataku, yang terlihat hanyalah senyummu. Ketika aku membuka hatiku, yang terisi hanyalah kehadiranmu. Setiap momen bersamamu seperti halaman baru dalam buku kehidupan yang paling indah yang pernah kubaca.</p>
-                    
-                    <p class="fade-in delay-2">Kau adalah pelangi setelah hujan, bintang di kegelapan, dan kehangatan di kedinginan. Dengan caramu yang unik, kau telah mengubah duniamu menjadi taman penuh warna di mana aku ingin menghabiskan sisa hidupku.</p>
-                    
-                    <p class="fade-in delay-3">Aku masih ingat pertama kali mataku bertemu dengan matamu. Saat itu, waktu seakan berhenti, dan dunia di sekitar menjadi blur. Yang tersisa hanya kau dan aku, dan perasaan aneh yang mulai tumbuh di dalam dadaku.</p>
-                    
-                    <p class="fade-in delay-4">Setiap hari bersamamu adalah petualangan baru. Tertawa bersama, berbagi cerita, bahkan dalam diam pun terasa nyaman. Kau mengajariku arti cinta yang sesungguhnya - bukan hanya perasaan, tapi pilihan untuk tetap bersama dalam suka dan duka.</p>
-                    
-                    <p class="fade-in delay-5">Mungkin tak ada kata yang cukup indah untuk menggambarkan apa yang kurasakan. Mungkin tak ada puisi yang cukup dalam untuk melukiskan keindahan hatimu. Tapi satu hal yang pasti: aku mencintaimu lebih dari kata-kata bisa ungkapkan.</p>
-                    
-                    <div class="signature fade-in delay-5">Dengan cinta,<br>Yang Selalu Memikirkanmu</div>
+        <div class="payment-methods">
+            <div class="payment-card" onclick="toggleDetails(this)">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" alt="DANA">
+                <h3>DANA</h3>
+                <div class="payment-details">
+                    <p>085797117307</p>
+                    <button class="copy-btn" onclick="copyToClipboard('085797117307', 'DANA number copied!')">Copy</button>
+                </div>
+            </div>
+            
+            <div class="payment-card" onclick="toggleDetails(this)">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Gopay_logo.svg" alt="Gopay">
+                <h3>Gopay</h3>
+                <div class="payment-details">
+                    <p>085797117307</p>
+                    <button class="copy-btn" onclick="copyToClipboard('085797117307', 'Gopay number copied!')">Copy</button>
+                </div>
+            </div>
+            
+            <div class="payment-card" onclick="toggleDetails(this)">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo_purple.svg" alt="OVO">
+                <h3>OVO</h3>
+                <div class="payment-details">
+                    <p>085797117307</p>
+                    <button class="copy-btn" onclick="copyToClipboard('085797117307', 'OVO number copied!')">Copy</button>
                 </div>
             </div>
         </div>
         
-        <div class="interactive">
-            <button class="btn" id="loveBtn">
-                <i class="fas fa-heart"></i> Kirim Cintaku
-            </button>
-            <button class="btn" id="memoryBtn">
-                <i class="fas fa-images"></i> Kenangan Indah
-            </button>
-            <button class="btn" id="promiseBtn">
-                <i class="fas fa-hand-holding-heart"></i> Janji Abadi
-            </button>
-        </div>
-        
-        <div class="footer">
-            <p>Dibuat dengan ❤ untuk mengungkapkan perasaan yang tak terucapkan | Setiap kata berasal dari hati yang tulus</p>
+        <div class="qris-container">
+            <img src="https://files.catbox.moe/klvb8v.jpeg" alt="QRIS">
+            <p>Scan QRIS untuk pembayaran</p>
         </div>
     </div>
     
-    <div class="hearts" id="heartsContainer"></div>
-    
-    <div class="music-control" id="musicControl">
-        <i class="fas fa-music"></i>
-    </div>
-    
-    <audio id="backgroundMusic" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    </audio>
+    <div class="notification" id="notification"></div>
     
     <script>
-        // Animasi hati mengambang
-        function createHearts() {
-            const container = document.getElementById('heartsContainer');
-            const heartIcons = ['❤', '💖', '💗', '💓', '💞', '💕'];
+        function toggleDetails(card) {
+            // Close all other cards first
+            document.querySelectorAll('.payment-card').forEach(el => {
+                if (el !== card) {
+                    el.classList.remove('active');
+                }
+            });
             
-            for (let i = 0; i < 20; i++) {
-                const heart = document.createElement('div');
-                heart.classList.add('heart-particle', 'floating');
-                heart.innerHTML = heartIcons[Math.floor(Math.random() * heartIcons.length)];
-                
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.top = Math.random() * 100 + 'vh';
-                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
-                heart.style.animationDelay = Math.random() * 5 + 's';
-                heart.style.opacity = Math.random() * 0.5 + 0.1;
-                
-                container.appendChild(heart);
-            }
+            // Toggle the clicked card
+            card.classList.toggle('active');
         }
         
-        // Efek untuk tombol cinta
-        document.getElementById('loveBtn').addEventListener('click', function() {
-            const hearts = document.createElement('div');
-            hearts.innerHTML = '❤❤❤';
-            hearts.style.position = 'fixed';
-            hearts.style.fontSize = '3rem';
-            hearts.style.zIndex = '1000';
-            hearts.style.left = '50%';
-            hearts.style.top = '50%';
-            hearts.style.transform = 'translate(-50%, -50%)';
-            hearts.style.animation = 'pulse 0.5s ease-out';
-            
-            document.body.appendChild(hearts);
+        function copyToClipboard(text, message) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification(message);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+        
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.classList.add('show');
             
             setTimeout(() => {
-                hearts.style.transition = 'all 1s ease-out';
-                hearts.style.opacity = '0';
-                hearts.style.transform = 'translate(-50%, -100px)';
-                
-                setTimeout(() => {
-                    document.body.removeChild(hearts);
-                }, 1000);
-            }, 500);
-            
-            // Tambahkan efek suara
-            const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-magic-sparkles-298.mp3');
-            audio.play();
-        });
-        
-        // Musik latar belakang
-        const music = document.getElementById('backgroundMusic');
-        const musicControl = document.getElementById('musicControl');
-        let isPlaying = false;
-        
-        musicControl.addEventListener('click', function() {
-            if (isPlaying) {
-                music.pause();
-                musicControl.innerHTML = '<i class="fas fa-music"></i>';
-                musicControl.style.background = 'rgba(255, 255, 255, 0.1)';
-            } else {
-                music.play();
-                musicControl.innerHTML = '<i class="fas fa-pause"></i>';
-                musicControl.style.background = 'rgba(255, 107, 139, 0.3)';
-            }
-            isPlaying = !isPlaying;
-        });
-        
-        // Button lainnya
-        document.getElementById('memoryBtn').addEventListener('click', function() {
-            alert('Setiap momen bersamamu adalah kenangan terindah yang akan selalu kusimpan di hati ❤');
-        });
-        
-        document.getElementById('promiseBtn').addEventListener('click', function() {
-            alert('Aku berjanji akan selalu ada untukmu, mencintaimu, dan menghargaimu setiap hari dalam hidup kita bersama 🤝❤');
-        });
-        
-        // Inisialisasi
-        window.onload = function() {
-            createHearts();
-            
-            // Mulai musik secara otomatis
-            setTimeout(() => {
-                music.play();
-                isPlaying = true;
-                musicControl.innerHTML = '<i class="fas fa-pause"></i>';
-                musicControl.style.background = 'rgba(255, 107, 139, 0.3)';
-            }, 2000);
-        };
+                notification.classList.remove('show');
+            }, 3000);
+        }
     </script>
 </body>
 </html>
