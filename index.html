@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Gateway</title>
+    <title>PNTERXX03 Payment Gateway</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
@@ -15,40 +15,28 @@
         }
         
         body {
-            background: url('https://files.catbox.moe/16ulsv.jpg') no-repeat center center fixed;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://files.catbox.moe/16ulsv.jpg');
             background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: #fff;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            position: relative;
-        }
-        
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 0;
         }
         
         .container {
-            position: relative;
-            z-index: 1;
             max-width: 800px;
             width: 100%;
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            animation: fadeIn 0.8s ease-out;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeIn 0.8s ease;
         }
         
         @keyframes fadeIn {
@@ -56,232 +44,234 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        h1 {
+        .header {
             text-align: center;
             margin-bottom: 30px;
-            font-weight: 600;
-            color: #fff;
-            position: relative;
-            padding-bottom: 15px;
         }
         
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, #00a8ff, #0097e6);
-            border-radius: 3px;
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #00b4ff, #ff00ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .header p {
+            font-size: 1rem;
+            opacity: 0.8;
         }
         
         .payment-methods {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
         }
         
         .payment-card {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             padding: 20px;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
             transition: all 0.3s ease;
-            cursor: pointer;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .payment-card:hover {
             transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         
-        .payment-card img {
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
+        .payment-header {
+            display: flex;
+            align-items: center;
             margin-bottom: 15px;
-            transition: transform 0.3s ease;
         }
         
-        .payment-card:hover img {
-            transform: scale(1.1);
+        .payment-icon {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            margin-right: 15px;
+            border-radius: 10px;
         }
         
-        .payment-card h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #fff;
+        .payment-title {
+            font-size: 1.3rem;
+            font-weight: 600;
         }
         
         .payment-details {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .payment-info {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
             background: rgba(0, 0, 0, 0.3);
-            padding: 15px;
             border-radius: 10px;
-            margin-top: 15px;
             transition: all 0.3s ease;
-            opacity: 0;
-            height: 0;
-            overflow: hidden;
         }
         
-        .payment-card.active .payment-details {
-            opacity: 1;
-            height: auto;
-            padding: 15px;
-            margin-top: 15px;
+        .payment-info:hover {
+            background: rgba(0, 0, 0, 0.4);
         }
         
-        .payment-details p {
-            font-size: 14px;
-            margin-bottom: 10px;
-            word-break: break-all;
+        .payment-number {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            margin-left: 10px;
         }
         
         .copy-btn {
-            background: linear-gradient(90deg, #00a8ff, #0097e6);
+            margin-left: auto;
+            background: rgba(255, 255, 255, 0.2);
             color: white;
             border: none;
             padding: 5px 10px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 12px;
-            margin-top: 5px;
             transition: all 0.3s ease;
         }
         
         .copy-btn:hover {
-            background: linear-gradient(90deg, #0097e6, #00a8ff);
-            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.3);
         }
         
         .qris-container {
-            text-align: center;
-            margin-top: 30px;
-            animation: pulse 2s infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 15px;
         }
         
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
-        }
-        
-        .qris-container img {
-            max-width: 250px;
+        .qris-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
             border-radius: 10px;
             border: 2px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
         }
         
-        .qris-container p {
+        .qris-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .qris-text {
             margin-top: 10px;
-            font-weight: 500;
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
         
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(0, 168, 255, 0.9);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            transform: translateX(200%);
-            transition: transform 0.3s ease;
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            opacity: 0.7;
         }
         
-        .notification.show {
-            transform: translateX(0);
+        .highlight {
+            color: #00ffaa;
+            font-weight: 600;
         }
         
-        @media (max-width: 768px) {
-            .payment-methods {
-                grid-template-columns: 1fr;
-            }
-            
+        @media (max-width: 600px) {
             .container {
                 padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .payment-title {
+                font-size: 1.1rem;
+            }
+            
+            .payment-number {
+                font-size: 1rem;
+            }
+            
+            .qris-image {
+                width: 180px;
+                height: 180px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Payment Gateway</h1>
+        <div class="header">
+            <h1>PNTERXX03 PAYMENT</h1>
+            <p>Please select your preferred payment method</p>
+        </div>
         
         <div class="payment-methods">
-            <div class="payment-card" onclick="toggleDetails(this)">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" alt="DANA">
-                <h3>DANA</h3>
+            <!-- DANA Payment -->
+            <div class="payment-card">
+                <div class="payment-header">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" alt="DANA" class="payment-icon">
+                    <h2 class="payment-title">DANA</h2>
+                </div>
                 <div class="payment-details">
-                    <p>085797117307</p>
-                    <button class="copy-btn" onclick="copyToClipboard('085797117307', 'DANA number copied!')">Copy</button>
+                    <div class="payment-info">
+                        <span>📱</span>
+                        <span class="payment-number">085797117307</span>
+                        <button class="copy-btn" onclick="copyToClipboard('085797117307')">Copy</button>
+                    </div>
                 </div>
             </div>
             
-            <div class="payment-card" onclick="toggleDetails(this)">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Gopay_logo.svg" alt="Gopay">
-                <h3>Gopay</h3>
-                <div class="payment-details">
-                    <p>085797117307</p>
-                    <button class="copy-btn" onclick="copyToClipboard('085797117307', 'Gopay number copied!')">Copy</button>
+            <!-- QRIS Payment -->
+            <div class="payment-card">
+                <div class="payment-header">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QRIS_logo.svg/1200px-QRIS_logo.svg.png" alt="QRIS" class="payment-icon">
+                    <h2 class="payment-title">QRIS</h2>
+                </div>
+                <div class="qris-container">
+                    <img src="https://files.catbox.moe/klvb8v.jpeg" alt="QR Code" class="qris-image">
+                    <p class="qris-text">Scan this QR code with your banking/payment app</p>
                 </div>
             </div>
             
-            <div class="payment-card" onclick="toggleDetails(this)">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo_purple.svg" alt="OVO">
-                <h3>OVO</h3>
+            <!-- OVO Payment -->
+            <div class="payment-card">
+                <div class="payment-header">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Logo_ovo_purple.svg/1200px-Logo_ovo_purple.svg.png" alt="OVO" class="payment-icon">
+                    <h2 class="payment-title">OVO</h2>
+                </div>
                 <div class="payment-details">
-                    <p>085797117307</p>
-                    <button class="copy-btn" onclick="copyToClipboard('085797117307', 'OVO number copied!')">Copy</button>
+                    <div class="payment-info">
+                        <span>📱</span>
+                        <span class="payment-number">085797117307</span>
+                        <button class="copy-btn" onclick="copyToClipboard('085797117307')">Copy</button>
+                    </div>
                 </div>
             </div>
         </div>
         
-        <div class="qris-container">
-            <img src="https://files.catbox.moe/klvb8v.jpeg" alt="QRIS">
-            <p>Scan QRIS untuk pembayaran</p>
+        <div class="footer">
+            <p>After payment, please confirm via WhatsApp or email with your payment receipt</p>
+            <p>Powered by <span class="highlight">PNTERXX03</span></p>
         </div>
     </div>
     
-    <div class="notification" id="notification"></div>
-    
     <script>
-        function toggleDetails(card) {
-            // Close all other cards first
-            document.querySelectorAll('.payment-card').forEach(el => {
-                if (el !== card) {
-                    el.classList.remove('active');
-                }
-            });
-            
-            // Toggle the clicked card
-            card.classList.toggle('active');
-        }
-        
-        function copyToClipboard(text, message) {
+        function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
-                showNotification(message);
+                alert('Copied to clipboard: ' + text);
             }).catch(err => {
                 console.error('Failed to copy: ', err);
             });
         }
-        
-        function showNotification(message) {
-            const notification = document.getElementById('notification');
-            notification.textContent = message;
-            notification.classList.add('show');
-            
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 3000);
-        }
     </script>
 </body>
-</html>
+    </html>
